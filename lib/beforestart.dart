@@ -88,16 +88,21 @@ class BeforeStartChecklistScreenState
       appBar: AppBar(
         title: Row(
           children: [
-            Text(
-                'Cessna 152 Before Start Checklist'), // Changed title to Before Start
-            Spacer(), // Pushes the next widget to the right
+            Expanded(
+              child: Text(
+                '', // Changed title to Before Taxi
+                overflow: TextOverflow
+                    .ellipsis, // Handles overflow if text is too long
+              ),
+            ),
             allCompleted
                 ? Text(
-                    'ALL CHECKS COMPLETED',
+                    'COMPLETED',
                     style: TextStyle(
                         color: Colors.green, fontWeight: FontWeight.bold),
                   )
-                : Text('Completed: $completedCount/${checklistItems.length}'),
+                : Text(
+                    'Before Start: $completedCount/${checklistItems.length}'),
           ],
         ),
       ),

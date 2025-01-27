@@ -1,31 +1,40 @@
+import 'package:c152/checklistitem.dart';
 import 'package:flutter/material.dart';
-import 'package:c152/checklistitem.dart'; // Import your checklist item widget
 
-class EngineStartChecklistScreen extends StatefulWidget {
-  const EngineStartChecklistScreen({super.key});
+class BeforeTaxiChecklistScreen extends StatefulWidget {
+  const BeforeTaxiChecklistScreen({super.key});
 
   @override
-  EngineStartChecklistScreenState createState() =>
-      EngineStartChecklistScreenState();
+  BeforeTaxiChecklistScreenState createState() =>
+      BeforeTaxiChecklistScreenState();
 }
 
-class EngineStartChecklistScreenState
-    extends State<EngineStartChecklistScreen> {
-  // List of checklist items and their requirements for engine start
+class BeforeTaxiChecklistScreenState extends State<BeforeTaxiChecklistScreen> {
+  // List of checklist items and their requirements for Before Taxi
   final List<Map<String, String>> checklistItems = [
-    {'item': 'Ignition Switch', 'req': 'Turn to start (hold for 3-5 seconds).'},
-    {'item': 'Oil Pressure', 'req': 'Verify oil pressure in the green range.'},
-    {'item': 'Ammeter', 'req': 'Check that the ammeter is charging.'},
+    {'item': 'Parking Brake', 'req': 'Ensure parking brake is set.'},
     {
-      'item': 'Throttle',
-      'req': 'Set to idle or 1,000 RPM (depending on aircraft).'
+      'item': 'Flight Controls',
+      'req': 'Check free movement of flight controls.'
     },
-    {'item': 'Mixture', 'req': 'Set to full rich.'},
-    {'item': 'Carburetor Heat', 'req': 'Set to OFF (or as required).'},
-    {'item': 'Master Switch', 'req': 'Ensure it remains ON.'},
-    {'item': 'Fuel Shutoff Valve', 'req': 'Ensure it is in the ON position.'},
-    {'item': 'Fuel Selector Valve', 'req': 'Set to BOTH or desired tank.'},
-    {'item': 'Parking Brake', 'req': 'Ensure it is set.'},
+    {
+      'item': 'Instruments',
+      'req': 'Verify all instruments are functioning properly.'
+    },
+    {'item': 'Fuel Quantity', 'req': 'Ensure sufficient fuel for the flight.'},
+    {
+      'item': 'Fuel Selector',
+      'req': 'Set fuel selector to BOTH or desired tank.'
+    },
+    {'item': 'Mixture', 'req': 'Set the mixture to FULL RICH.'},
+    {'item': 'Throttle', 'req': 'Set the throttle to 1,000 RPM.'},
+    {'item': 'Carburetor Heat', 'req': 'Ensure carburetor heat is OFF.'},
+    {'item': 'Ammeter', 'req': 'Check ammeter for proper charging.'},
+    {'item': 'Beacon Light', 'req': 'Turn the beacon light ON.'},
+    {'item': 'Pitot Heat', 'req': 'Turn pitot heat ON if necessary.'},
+    {'item': 'Flaps', 'req': 'Set flaps to takeoff position (if required).'},
+    {'item': 'Trim', 'req': 'Set trim for takeoff.'},
+    {'item': 'Altimeter', 'req': 'Set altimeter to current airport pressure.'},
   ];
 
   // Track the state of each checklist item
@@ -64,8 +73,7 @@ class EngineStartChecklistScreenState
                     style: TextStyle(
                         color: Colors.green, fontWeight: FontWeight.bold),
                   )
-                : Text(
-                    'Engine Start: $completedCount/${checklistItems.length}'),
+                : Text('Before Taxi: $completedCount/${checklistItems.length}'),
           ],
         ),
       ),

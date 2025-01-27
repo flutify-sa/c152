@@ -123,37 +123,57 @@ class PreflightScreenState extends State<PreflightScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
         title: Row(
           children: [
-            Text(
-                'Cessna 152 Preflight Checklist'), // Changed title to Preflight
-            Spacer(), // Pushes the next widget to the right
-            allCompleted
-                ? Text(
-                    'ALL CHECKS COMPLETED',
-                    style: TextStyle(
-                        color: Colors.green, fontWeight: FontWeight.bold),
-                  )
-                : Text('Completed: $completedCount/${checklistItems.length}'),
+            Expanded(
+              child: Text(
+                '', // Empty title or custom title
+                overflow: TextOverflow.ellipsis, // Handle overflow
+              ),
+            ),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: allCompleted
+                  ? Text(
+                      'COMPLETED',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  : Text(
+                      'Pre Flight: $completedCount/${checklistItems.length}',
+                    ),
+            ),
           ],
         ),
       ),
-      body: ListView.builder(
-        itemCount: checklistItems.length,
-        itemBuilder: (context, index) {
-          return ChecklistItem(
-            item: checklistItems[index]['item']!,
-            req: checklistItems[index]['req']!,
-            isCompleted: isCompleted[index],
-            onPressed: () {
-              setState(() {
-                isCompleted[index] = !isCompleted[index];
-              });
-            },
-          );
-        },
+      body: SingleChildScrollView(
+        // Wrap the body in SingleChildScrollView to prevent overflow
+        child: Column(
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              physics:
+                  NeverScrollableScrollPhysics(), // Prevent internal scrolling
+              itemCount: checklistItems.length,
+              itemBuilder: (context, index) {
+                return ChecklistItem(
+                  item: checklistItems[index]['item']!,
+                  req: checklistItems[index]['req']!,
+                  isCompleted: isCompleted[index],
+                  onPressed: () {
+                    setState(() {
+                      isCompleted[index] = !isCompleted[index];
+                    });
+                  },
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
