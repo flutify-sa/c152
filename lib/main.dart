@@ -1,4 +1,4 @@
-import 'package:c152/checklistscreen.dart';
+import 'package:c152/homescreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cessna 152 Checklist',
-      home: ChecklistScreen(),
+      home: HomeScreen(),
     );
   }
 }
