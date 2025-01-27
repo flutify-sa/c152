@@ -56,7 +56,7 @@ class BeforeTaxiChecklistScreenState extends State<BeforeTaxiChecklistScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.blue.shade50, // Match the background color
       appBar: AppBar(
         title: Row(
           children: [
@@ -77,20 +77,48 @@ class BeforeTaxiChecklistScreenState extends State<BeforeTaxiChecklistScreen> {
           ],
         ),
       ),
-      body: ListView.builder(
-        itemCount: checklistItems.length,
-        itemBuilder: (context, index) {
-          return ChecklistItem(
-            item: checklistItems[index]['item']!,
-            req: checklistItems[index]['req']!,
-            isCompleted: isCompleted[index],
-            onPressed: () {
-              setState(() {
-                isCompleted[index] = !isCompleted[index];
-              });
-            },
-          );
-        },
+      body: SingleChildScrollView(
+        // Wrap the body in SingleChildScrollView to prevent overflow
+        child: Column(
+          children: [
+            ListView.builder(
+              shrinkWrap: true,
+              physics:
+                  NeverScrollableScrollPhysics(), // Prevent internal scrolling
+              itemCount: checklistItems.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 8.0), // Add vertical spacing
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white, // White background
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Rounded corners
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 4.0,
+                          offset: Offset(0, 2), // Add a subtle shadow
+                        ),
+                      ],
+                    ),
+                    child: ChecklistItem(
+                      item: checklistItems[index]['item']!,
+                      req: checklistItems[index]['req']!,
+                      isCompleted: isCompleted[index],
+                      onPressed: () {
+                        setState(() {
+                          isCompleted[index] = !isCompleted[index];
+                        });
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -38,28 +38,55 @@ class HomeScreen extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              // Drawer Header
-              UserAccountsDrawerHeader(
+              // Custom Drawer Header
+              Container(
+                height: 150, // Adjust the height as needed
                 decoration: BoxDecoration(
-                  color: Colors.blue, // Change color to match your theme
+                  color: Colors.blue, // Background color for the header
                 ),
-                accountName: Text(
-                  'C152',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-                accountEmail: Text(
-                  'Checklists',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: Image.asset('assets/c152.png', fit: BoxFit.cover),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(
+                          10.0), // Add padding around the image
+                      child: CircleAvatar(
+                        radius: 40, // Adjust the size of the circle avatar
+                        backgroundColor: Colors.white,
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/c152.png', // Path to your image
+                            fit: BoxFit.cover,
+                            width: 90, // Adjust the width of the image
+                            height: 90, // Adjust the height of the image
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 16), // Add space between the image and text
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'C152',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                            height: 8), // Add space between the two text lines
+                        Text(
+                          'Checklists',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               // Preflight Checklist Link
@@ -118,10 +145,29 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         body: Center(
-          child: Image.asset(
-            'assets/c152.png', // Path to the image in the assets folder
-            width: 300, // You can adjust the width as needed
-            height: 300, // You can adjust the height as needed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'CHECKLISTS FIRST',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight
+                        .bold), // You can customize the font size here
+              ),
+              Image.asset(
+                'assets/c152.png', // Path to the image in the assets folder
+                width: 300, // You can adjust the width as needed
+                height: 300, // You can adjust the height as needed
+              ),
+              Text(
+                'SAFETY ALWAYS',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight
+                        .bold), // You can customize the font size here
+              ),
+            ],
           ),
         ),
       ),

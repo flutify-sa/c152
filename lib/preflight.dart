@@ -160,15 +160,33 @@ class PreflightScreenState extends State<PreflightScreen> {
                   NeverScrollableScrollPhysics(), // Prevent internal scrolling
               itemCount: checklistItems.length,
               itemBuilder: (context, index) {
-                return ChecklistItem(
-                  item: checklistItems[index]['item']!,
-                  req: checklistItems[index]['req']!,
-                  isCompleted: isCompleted[index],
-                  onPressed: () {
-                    setState(() {
-                      isCompleted[index] = !isCompleted[index];
-                    });
-                  },
+                return Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 8.0), // Add vertical spacing
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white, // White background
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Rounded corners
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 4.0,
+                          offset: Offset(0, 2), // Add a subtle shadow
+                        ),
+                      ],
+                    ),
+                    child: ChecklistItem(
+                      item: checklistItems[index]['item']!,
+                      req: checklistItems[index]['req']!,
+                      isCompleted: isCompleted[index],
+                      onPressed: () {
+                        setState(() {
+                          isCompleted[index] = !isCompleted[index];
+                        });
+                      },
+                    ),
+                  ),
                 );
               },
             ),
