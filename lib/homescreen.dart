@@ -1,6 +1,13 @@
+import 'package:c152/approach.dart';
 import 'package:c152/beforetakeoff.dart';
 import 'package:c152/beforetaxi.dart';
+import 'package:c152/climb.dart';
+import 'package:c152/cruise.dart';
+import 'package:c152/descent.dart';
 import 'package:c152/enginestart.dart';
+import 'package:c152/landing.dart';
+import 'package:c152/postlanding.dart';
+import 'package:c152/shutdown.dart';
 import 'package:c152/takeoff.dart';
 import 'package:c152/taxi.dart';
 import 'package:flutter/material.dart';
@@ -176,6 +183,90 @@ class HomeScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) =>
                           const TakeoffChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Climb Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const ClimbChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Cruise Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const CruiseChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Descent Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const DescentChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Approach Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const ApproachChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Landing Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const LandingChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Post-Landing Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const PostLandingChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Shut Down Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const ShutdownChecklistScreen(), // Link to Before Taxi Checklist
                     ),
                   );
                 },
