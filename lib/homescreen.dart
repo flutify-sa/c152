@@ -1,5 +1,8 @@
+import 'package:c152/beforetakeoff.dart';
 import 'package:c152/beforetaxi.dart';
 import 'package:c152/enginestart.dart';
+import 'package:c152/takeoff.dart';
+import 'package:c152/taxi.dart';
 import 'package:flutter/material.dart';
 import 'package:c152/preflight.dart';
 import 'package:c152/beforestart.dart';
@@ -137,6 +140,42 @@ class HomeScreen extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) =>
                           const BeforeTaxiChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Taxi Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const TaxiChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Before Take-Off Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const BeforeTakeoffChecklistScreen(), // Link to Before Taxi Checklist
+                    ),
+                  );
+                },
+              ),
+              DrawerListTile(
+                title: 'Take-Off Checklist',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const TakeoffChecklistScreen(), // Link to Before Taxi Checklist
                     ),
                   );
                 },

@@ -24,9 +24,9 @@ class DrawerListTile extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(7.0), // Rounded corners
       ),
-      padding: EdgeInsets.all(8.0), // Inner padding
+      padding: EdgeInsets.all(5.0), // Inner padding
       margin:
-          EdgeInsets.symmetric(vertical: 7.0, horizontal: 4.0), // Outer spacing
+          EdgeInsets.symmetric(vertical: 5.0, horizontal: 4.0), // Outer spacing
       child: ListTile(
         title: Text(
           title,
